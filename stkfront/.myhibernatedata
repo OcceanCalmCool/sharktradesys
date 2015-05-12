@@ -1,0 +1,23 @@
+#MyEclipse Hibernate Properties
+#Fri Apr 24 17:28:17 CST 2015
+genBasicCompId=false
+sessionFactoryName=com.baidu.st.model.HibernateSessionFactory
+profile=
+daoSFId=sessionFactory
+version=3.2
+jndiPath=
+detectM2M=false
+reStrategyClass=
+springDaoFile=src/applicationContext.xml
+useJavaTypes=false
+keyGenerator=
+libInstallFolder=WebRoot/WEB-INF/lib
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=sessionFactory
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=
+configFile=/sharktrade/src/applicationContext.xml
+createConfigFile=false
+addLibs2Classpath=true
