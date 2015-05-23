@@ -9,7 +9,7 @@
     <link rel="icon" href="favicon.ico">
 
     <title>Shark Trade</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,8 +27,7 @@
     <![endif]-->
   </head>
 
-  <body>
-
+  <body data-target=".bs-docs-sidebar" data-spy="scroll">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -60,12 +59,12 @@
       </div>
       <span><button type="button" class="btn-primary">Search</button></span>
     </form>
-    
-    <div class="span3 bs-docs-sidebar" id="stknavbar">
-      <ul class="nav nav-list bs-docs-sidenav affix">
+
+    <div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix" id="stknavbar">
       </ul>
     </div>
-    
+
     <div class="display-stk">
       <div id="main" style="padding-left:150px;height:600px">
       </div>
@@ -146,9 +145,14 @@
           var tmpdata = JSON.parse(res.split('\n')[1]);
           respdata = tmpdata;
           var stktable = $('#stknavbar');
+          var stkul = document.getElementById("stknavbar");
+          stkul.curclickindex = -1;
+          var index = 1;
           for(var elt in tmpdata) {
             var tr = "<li class=\"\"><a onclick=\"clicktest(this);return false\">" + elt + "</a></li>";
-            stktable.append(tr);
+            var curnode = stktable.append(tr);
+            curnode[0].lastChild.curindex = index;
+            index = index + 1;
           }
         };
         
@@ -192,6 +196,17 @@
 
         function clicktest(stkobj) {
         var keyval = stkobj.childNodes[0].data;
+        var ulval = stkobj.parentNode.parentNode;
+        var lilist = ulval.childNodes;
+        if(ulval.curclickindex === -1) {
+          stkobj.parentNode.className = 'active';
+          ulval.curclickindex = stkobj.parentNode.curindex;
+        } else {
+          lilist[ulval.curclickindex].className = '';
+          stkobj.parentNode.className = 'active';
+          ulval.curclickindex = stkobj.parentNode.curindex;
+        }
+
         require.config({
             paths: {
                 echarts: 'js/echarts-2.2.2/build/dist'
