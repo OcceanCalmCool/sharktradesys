@@ -52,22 +52,23 @@
         </span>
       </div>
       <div id="datetimepickerend" class="input-append date">
-        <span class="label label-info">EndTime:</span>
+        <span class="label label-info">EndTime:</span>fs
         <input type="text" style="margin-top:-6px" id="text_et"></input>
         <span class="add-on">
           <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
         </span>
       </div>
+
+      <div id="stknumber" class="input-append stknumber">
+        <span class="label label-info">StkNumber:</span>
+        <input type="text" style="margin-top:-6px" id="text_stknum"></input>
+      </div>
+
       <span><button type="button" class="btn-primary">Search</button></span>
     </form>
 
-    <div class="span3 bs-docs-sidebar">
-      <ul class="nav nav-list bs-docs-sidenav affix" id="stknavbar">
-      </ul>
-    </div>
-
     <div class="display-stk">
-      <div id="main" style="padding-left:150px;height:600px">
+      <div id="main" style="padding-left:50px;height:600px">
       </div>
     </div>
     
@@ -81,7 +82,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script type="text/javascript">
         var selecttime = {};
-        var respdata = {};
         $('#datetimepickerbegin').datetimepicker({
           format: 'yyyy-MM-dd hh:mm',
           language: 'en',
@@ -111,6 +111,9 @@
         $("#datetimepickerend").on("changeDate", function(e) {
           selecttime.et = e.localDate.toString();
         });
+        $("#text_stknum").on("input",function(e){
+          selecttime.stknu = this.value;
+        });
 
         var submitbutton = $(".btn-primary");
 
@@ -121,47 +124,21 @@
           request.onreadystatechange = function() {
             if(request.readyState === 4 && callback) {
               var type = request.getResponseHeader("Content-Type");
-              console.log("euxyacg call type:" + type);
               if(type === "application/json;charset=UTF-8")
                 callback(request.responseText);
             }
           };
+          console.log(JSON.stringify(data));
           request.send(JSON.stringify(data));
         };
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-        function get(url, callback) {
-          var request = new XMLHttpRequest();
-          request.open("GET", url);
-          request.onreadystatechange = function() {
-            if(request.readyState === 4 && request.status === 200) {
-              var type = request.getResponseHeader("Content-Type");
-              if(type === "application/json")
-                callback(JSON.parse(request.responseText));
-            }
-          };
-          request.send(null);
-        };
-
-        function testResponse(res) {
+        function processResp(res) {
           var tmpdata = JSON.parse(res.split('\n')[1]);
-          respdata = tmpdata;
-          var stktable = $('#stknavbar');
-          var stkul = document.getElementById("stknavbar");
-          stkul.curclickindex = -1;
-          var index = 1;
-          for(var elt in tmpdata) {
-            var tr = "<li class=\"\"><a onclick=\"clicktest(this);return false\">" + elt + "</a></li>";
-            var curnode = stktable.append(tr);
-            curnode[0].lastChild.curindex = index;
-            index = index + 1;
-          } 
+          showCharts(tmpdata[selecttime.stknu]);
         };
         
-        function checkResponse(res){
-          console.log(res);
-        };
         submitbutton.bind("click", function() {
-          postJSON("api", selecttime, testResponse);
+          postJSON("querystk", selecttime, processResp);
         });
 
         function extracttimelist(stklist) {
@@ -195,91 +172,78 @@
           return price;
         }
 
-        function clicktest(stkobj) {
-        var keyval = stkobj.childNodes[0].data;
-        var ulval = stkobj.parentNode.parentNode;
-        var lilist = ulval.childNodes;
-        if(ulval.curclickindex === -1) {
-          stkobj.parentNode.className = 'active';
-          ulval.curclickindex = stkobj.parentNode.curindex;
-        } else {
-          lilist[ulval.curclickindex].className = '';
-          stkobj.parentNode.className = 'active';
-          ulval.curclickindex = stkobj.parentNode.curindex;
-        }
-
-        require.config({
-            paths: {
-                echarts: 'js/echarts-2.2.2/build/dist'
-            }
-        });
-        require(
-            [
-                'echarts',
-                'echarts/chart/line'
-            ],
-            function (ec) {
-                // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('main')); 
-                var option = {
-                  tooltip : {
-                    trigger: 'axis'
-                  },
-                  legend: {
-                    data:['Delta','Price']
-                  },
-                  toolbox: {
-                    show : true,
-                    feature : {
-                      mark : {show: true},
-                      dataView : {show: true, readOnly: false},
-                      magicType : {show: true, type: ['line', 'bar']},
-                      restore : {show: true},
-                      saveAsImage : {show: true}
-                    }
-                  },
-                  calculable : true,
-                  xAxis : [
-                    {
-                      type : 'category',
-                      boundaryGap : false,
-                      data : extracttimelist(respdata[keyval]),
-                    }
-                  ],
-                  yAxis : [
-                    {
-                      type : 'value',
-                      axisLabel : {
-                        formatter: '{value}'
-                      }
-                    }
-                  ],
-                  series : [
-                    {
-                      name:'Delta',
-                      type:'line',
-                      data:extractdeltalist(respdata[keyval]),
-                      markLine : {
-                      data : [
-                        {type : 'average', name: 'Average'}
-                      ]
-                      }
-                    },
-                    {
-                      name:'Price',
-                      type:'line',
-                      data:extracpricelist(respdata[keyval]),
-                      markLine : {
-                      data : [
-                        {type : 'average', name : 'Average'}
-                      ]
-                      }
-                    }
-                ]
-              };
-            myChart.setOption(option); 
-          }
-        );
+        function showCharts(stklist) {
+            require.config({
+                paths: {
+                    echarts: 'js/echarts-2.2.2/build/dist'
+                }
+            });
+            require(
+                [
+                    'echarts',
+                    'echarts/chart/line'
+                ],
+                function (ec) {
+                    var myChart = ec.init(document.getElementById('main')); 
+                    var option = {
+                      tooltip : {
+                        trigger: 'axis'
+                      },
+                      legend: {
+                        data:['Delta','Price']
+                      },
+                      toolbox: {
+                        show : true,
+                        feature : {
+                          mark : {show: true},
+                          dataView : {show: true, readOnly: false},
+                          magicType : {show: true, type: ['line', 'bar']},
+                          restore : {show: true},
+                          saveAsImage : {show: true}
+                        }
+                      },
+                      calculable : true,
+                      xAxis : [
+                        {
+                          type : 'category',
+                          boundaryGap : false,
+                          data : extracttimelist(stklist),
+                        }
+                      ],
+                      yAxis : [
+                        {
+                          type : 'value',
+                          axisLabel : {
+                            formatter: '{value}'
+                          }
+                        }
+                      ],
+                      series : [
+                        {
+                          name:'Delta',
+                          type:'line',
+                          data:extractdeltalist(stklist),
+                          markLine : {
+                          data : [
+                            {type : 'average', name: 'Average'}
+                          ]
+                          }
+                        },
+                        {
+                          name:'Price',
+                          type:'line',
+                          data:extracpricelist(stklist),
+                          markLine : {
+                          data : [
+                            {type : 'average', name : 'Average'}
+                          ]
+                          }
+                        }
+                    ]
+                  };
+                myChart.setOption(option); 
+              }
+            );
         }
     </script>
   </body>

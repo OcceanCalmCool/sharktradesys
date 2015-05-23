@@ -11,8 +11,16 @@
     <servlet-name>ajax</servlet-name>
     <servlet-class>com.baidu.st.model.TestServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ajax_querystk</servlet-name>
+    <servlet-class>com.baidu.st.model.TradeSelectStk</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ajax</servlet-name>
     <url-pattern>/api</url-pattern>
-  </servlet-mapping>    
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>ajax_querystk</servlet-name>
+    <url-pattern>/querystk</url-pattern>
+  </servlet-mapping> 
 </web-app>
