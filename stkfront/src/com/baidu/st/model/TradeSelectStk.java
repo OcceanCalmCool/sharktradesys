@@ -110,7 +110,7 @@ public class TradeSelectStk extends HttpServlet{
 	    	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 	    	TraderecDAO trdao = (TraderecDAO)context.getBean("TraderecDAO");
 	    	String sqlQuery = new String();
-	    	sqlQuery = "WHERE time>='" + beginTime +"'" + " and time<=" + "'" + endTime + "'" + " and code=" + stkNum;
+	    	sqlQuery = "WHERE time>='" + beginTime +"'" + " and time<=" + "'" + endTime + "'" + " and code = " + "'" + stkNum + "'";
 	    	return trdao.findStringQuery(sqlQuery);
 	    }
 	    
