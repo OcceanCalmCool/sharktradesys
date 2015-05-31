@@ -166,7 +166,7 @@
           var price = new Array();
           for(var i = 1; i < stklist.length; i = i + 3) {
             var tmpobj = stklist[i];
-            price.push(tmpobj['price'] * 100);
+            price.push(tmpobj['price']);
           }
           console.log(price);
           return price;
@@ -213,9 +213,18 @@
                       yAxis : [
                         {
                           type : 'value',
+                          name : 'Delta',
                           axisLabel : {
                             formatter: '{value}'
                           }
+                        },
+                        {
+                          type : 'value',
+                          name : 'Price',
+                          axisLabel : {
+                            formatter: '{value}'
+                          },
+                          scale : true
                         }
                       ],
                       series : [
@@ -233,6 +242,7 @@
                           name:'Price',
                           type:'line',
                           data:extracpricelist(stklist),
+                          yAxisIndex: 1,
                           markLine : {
                           data : [
                             {type : 'average', name : 'Average'}
