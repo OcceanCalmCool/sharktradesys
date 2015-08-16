@@ -70,8 +70,8 @@ scdStatus ScdCollector::ScdWork()
 
 int ScdCollector::ScdIsSh(std::string& stk_ele)
 {
-    if(stk_ele[0] == '6') return 1;
-    if(stk_ele[0] == '0') return 0;
+    if((stk_ele[0] == '6') || (stk_ele[0] == '5')) return 1;
+    if((stk_ele[0] == '0') || (stk_ele[0] == '1')) return 0;
     return 0;
 }
 
