@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<div xmlns="http://www.w3.org/1999/xhtml" xid="window" class="window" component="$model/UI2/system/components/justep/window/window" design="device:mobile" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" components="$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/bootstrap/panel/panel,$model/UI2/system/components/justep/data/data,">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}"></div>  
+  <div class="panel panel-default" component="$model/UI2/system/components/bootstrap/panel/panel" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/bootstrap/panel/panel'}"> 
+    <div class="panel-heading" xid="mainindex"> 
+      <h4 class="panel-title" xid="h41">模型选择</h4> 
+    </div>  
+    <div class="panel-body" xid="body1"/>  
+    <div class="panel-footer" xid="footer1"/> 
+  </div> 
+</div>

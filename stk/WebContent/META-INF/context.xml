@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+	<Resource name="jdbc/ruyifund" type="javax.sql.DataSource"
+		maxActive="100" maxIdle="30"
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://103.6.222.80:3306/ruyifund"
+		username="work" password="123456" />
+</Context>

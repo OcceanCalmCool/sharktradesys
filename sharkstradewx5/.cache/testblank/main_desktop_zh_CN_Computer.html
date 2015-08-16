@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%" class="no-js">  
+  <head xmlns=""> 
+    <meta charset="utf-8"/>  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>  
+    <meta name="apple-mobile-web-app-capable" content="yes"/>  
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>  
+    <meta name="format-detection" content="telephone=no"/>  
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/> 
+  </head>  
+  <body xmlns="" style="width:100%;height:100%;margin: 0;"> 
+    <script>
+    	
+    	         window.__justep = {};     
+		 	
+    	</script>  
+    <div id="applicationHost" class="applicationHost" style="width:100%;height:100%" __component-context__="block">
+      <div xid="window" class="window" component="$model/UI2/system/components/justep/window/window" design="device:mobile" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" components="$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,">  
+        <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}"/> 
+      </div>
+    </div>  
+    <script src="../../../$v9d7661dff20545f8a16f88dd1c543de8$lzh_CN$sdesktop$d/UI2/system/config/meta.js"> </script>  
+    <script id="_requireJS" src="../../../$vc96a111e8f3a47448414aefd998489a9$lzh_CN$sdesktop$d/UI2/system/lib/require/require.2.1.10.js"> </script>  
+    <script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="../../../$v7f3ebc50a9ea4cf5b6444655f5b16cb0$lzh_CN$sdesktop$d/UI2/system/core.min.js"></script>
+    <script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="../../../$vb3e28a6436bd416b921f654fd84e66ef$lzh_CN$sdesktop$d/UI2/system/common.min.js"></script>
+    <script id="_mainScript">
+        
+            window.__justep.isDebug = true;     
+        	window.__justep.__ResourceEngine = {
+        		url: window.location.href,	
+        		/*contextPath: 不包括语言 */
+        		contextPath: "",
+        		__loadedJS: [],
+        		initContextPath: function(){
+        			var baseURL = document.getElementById("_requireJS").src;
+        			var before = location.protocol + "//" + location.host;
+        			var after = "/UI2/system/lib/require/require.2.1.10.js";
+        			var i = baseURL.indexOf(after);
+        			if (i !== -1){
+	        			var middle = baseURL.substring(before.length, i);
+						var items = middle.split("/");
+						
+						
+						if (items[items.length-1].indexOf("$v") === 0){
+							items.splice(items.length-1, 1);
+						}
+						
+						
+						if (items.length !== 1){
+							window.__justep.__ResourceEngine.contextPath = items.join("/");
+						}
+        			}else{
+        				throw new Error(baseURL + " hasn't  " + after);
+        			}
+        		},
+        	
+        		loadJs: function(urls){
+        			if (urls &amp;&amp; urls.length&gt;0){
+        				var loadeds = this._getResources("script", "src").concat(this.__loadedJS);
+	       				for (var i=0; i&lt;urls.length; i++){
+	       					var url = window.__justep.__ResourceEngine.contextPath + urls[i];
+	        				if(!this._isLoaded(url, loadeds)){
+	        					this.__loadedJS[this.__loadedJS.length] = url;
+	        					/*
+	        					var script = document.createElement("script");
+	        					script.src = url;
+	        					document.head.appendChild(script);
+	        					*/
+	        					//$("head").append("&lt;script  src='" + url + "'/&gt;");
+	        					$.ajax({
+	        						url: url,
+	        						dataType: "script",
+	        						cache: true,
+	        						async: false,
+	        						success: function(){}
+	        						});
+	        				} 
+	       				}
+        			}
+        		},
+        		
+        		loadCss: function(styles){
+       				var loadeds = this._getResources("link", "href");
+        			if (styles &amp;&amp; styles.length&gt;0){
+        				for (var i=0; i&lt;styles.length; i++){
+	       					var url = window.__justep.__ResourceEngine.contextPath + styles[i].url
+	        				if(!this._isLoaded(url, loadeds)){
+	        					var include = styles[i].include || "";
+	        					$("head").append("&lt;link type='text/css' rel='stylesheet' href='" + url + "' include='" + include + "'/&gt;");
+	        				} 
+        				}
+        			}
+        			
+        		},
+        		
+        		_isLoaded: function(url, loadeds){
+        			if (url){
+        				var i = url.indexOf("$v");
+        				if (i!==-1){
+        					var tmp = url.substr(i);
+        					i = tmp.indexOf("/");
+        					if (i!==-1){
+        						url = tmp.substr(i);
+        					}
+        				}
+						for (var i=0; i&lt;loadeds.length; i++){
+							if (loadeds[i] &amp;&amp; (loadeds[i].indexOf(url)!==-1)){
+								return true;
+							}
+						}
+        			}
+					return false;
+        		},
+        		
+        		_getResources: function(tag, attr){
+					var result = [];
+					var scripts = $(tag);
+					for (var i=0; i&lt;scripts.length; i++){
+						var v = scripts[i][attr];
+						if (v){
+							result[result.length] = v;
+						}
+					}
+					return result;
+        		},
+        	};
+        	
+        	window.__justep.__ResourceEngine.initContextPath();
+        	window.__justep.__isPackage = false;;
+			requirejs.config({
+				baseUrl: window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/sharkstrade',
+			    paths: {
+			    	'modernizr': window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/base/modernizr-2.8.3.min',
+			    	'$model': window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d',
+			        'text': window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/require/text.2.0.10',
+			        'bind': window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/bind/bind',
+			        'jquery': window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/jquery/jquery-1.11.1.min'
+			    },
+			    shim: {
+			    	'modernizr': {
+			    		exports: 'Modernizr'
+			    	}
+			    },
+				map: {
+				        '*': {
+				            res: window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/require/res.js',
+				            cordova: window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/require/cordova.js',
+				            w: window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/require/w.js',
+				            css: window.__justep.__ResourceEngine.contextPath + '/$vcfa7fe700fcb4ff48f09b634f5c6fa04$lzh_CN$sdesktop$d/UI2/system/lib/require/css.js'
+				        }
+				},
+				deps: ['modernizr'],
+				waitSeconds: 30
+			});
+			
+			require(['require', 'jquery', '$model/UI2/system/lib/base/composition', '$model/UI2/system/lib/cordova/cordova'],  function (require, $, composition) { 
+	            document.addEventListener('deviceready', function() {
+	                if (navigator &amp;&amp; navigator.splashscreen &amp;&amp; navigator.splashscreen.hide) {
+	                	/*延迟隐藏，视觉效果更理想*/
+	                	setTimeout(function() {navigator.splashscreen.hide();}, 800);
+	                }
+	            }, false);
+				var context = {};
+				context.model = '$model/UI2/sharkstrade/testblank.w' + (document.location.search || "");
+				context.view = $('#applicationHost').children()[0];
+				var element = document.getElementById('applicationHost');
+				composition.compose(element, context);
+			});    
+		 	
+        </script> 
+  </body> 
+</html>

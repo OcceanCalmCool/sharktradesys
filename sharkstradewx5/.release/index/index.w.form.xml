@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<div xmlns="http://www.w3.org/1999/xhtml" xid="window" class="window" component="$model/UI2/system/components/justep/window/window" design="device:mobile" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" components="$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/windowDialog/windowDialog,$model/UI2/system/components/justep/button/buttonGroup,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/controlGroup/controlGroup,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/contents/contents,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/select/select,$model/UI2/system/components/justep/contents/content,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/input/input,">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}"></div>  
+  <span component="$model/UI2/system/components/justep/windowDialog/windowDialog" xid="stkDetail" data-bind="component:{name:'$model/UI2/system/components/justep/windowDialog/windowDialog'}" data-config="{&quot;src&quot;:&quot;$model/UI2/sharkstrade/stkdetail.w&quot;}">
+    <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="x-dialog-overlay"></xhtml:div>
+    <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml" class="x-dialog" style="display:none;">
+      <xhtml:div class="x-dialog-title">
+        <xhtml:button class="close">
+          <xhtml:span>×</xhtml:span>
+        </xhtml:button>
+        <xhtml:div class="x-dialog-title-text"/>
+      </xhtml:div>
+      <xhtml:div class="x-dialog-body"/>
+    </xhtml:div>
+  </span>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full panel1-iosstatusbar" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}"> 
+    <div class="x-panel-top" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar" xid="titleBar1" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&quot;title&quot;:&quot;如意助手&quot;}"> 
+        <div class="x-titlebar-left" xid="div1"/>  
+        <div class="x-titlebar-title" xid="div2">如意助手</div>  
+        <div class="x-titlebar-right " xid="div3">
+          <div class="empty"/>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-bottom" xid="bottom1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}"> 
+      <div component="$model/UI2/system/components/justep/button/buttonGroup" class="btn-group btn-group-justified" xid="buttonGroup1" data-bind="component:{name:'$model/UI2/system/components/justep/button/buttonGroup'}" data-config="{&quot;tabbed&quot;:true}"> 
+        <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default btn-icon-top" xid="button1" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-config="{&quot;icon&quot;:&quot;icon-ios7-paperplane&quot;,&quot;label&quot;:&quot;选股&quot;,&quot;target&quot;:&quot;customer&quot;}"> 
+          <i xid="i1" class="icon-ios7-paperplane"/>  
+          <span xid="span1">模型</span> 
+        </a>  
+        <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default btn-icon-top" xid="button2" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-config="{&quot;icon&quot;:&quot;icon-android-locate&quot;,&quot;label&quot;:&quot;个股&quot;,&quot;target&quot;:&quot;searchinfo&quot;}"> 
+          <i xid="i2" class="icon-android-locate"/>  
+          <span xid="span2">个股</span> 
+        </a>  
+        <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default btn-icon-top" xid="button3" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-config="{&quot;icon&quot;:&quot;icon-android-friends&quot;,&quot;label&quot;:&quot;资讯&quot;,&quot;target&quot;:&quot;market&quot;}"> 
+          <i xid="i3" class="icon-android-friends"/>  
+          <span xid="span3">行情</span> 
+        </a>  
+        <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default btn-icon-top" xid="button4" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-config="{&quot;icon&quot;:&quot;icon-android-add-contact&quot;,&quot;label&quot;:&quot;自选&quot;,&quot;target&quot;:&quot;mine&quot;}"> 
+          <i xid="i4" class="icon-android-add-contact"/>  
+          <span xid="span4">个人</span> 
+        </a> 
+      </div> 
+    </div>  
+    <div class="x-panel-content" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}"> 
+      <div component="$model/UI2/system/components/justep/contents/contents" class="x-contents x-full" xid="pages" data-bind="component:{name:'$model/UI2/system/components/justep/contents/contents'}" data-config="{&quot;active&quot;:0}"> 
+        <div class="x-contents-content active" xid="customer" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}"> 
+          <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group" xid="controlGroup4" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&quot;title&quot;:&quot;时间选择&quot;}"> 
+            <div class="x-control-group-title" xid="controlGroupTitle4" style="height:40px;"> 
+              <span xid="span10">时间选择</span> 
+            </div>  
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30" xid="lbinputtime" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}"> 
+              <label class="x-label" xid="gtlabel" bind-text="userModel.label('gonetime')"/>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit" xid="gonetime" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}"/>  
+              <label xid="dayunit">天</label> 
+            </div> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group" xid="controlGroup3" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&quot;title&quot;:&quot;模型定义&quot;}"> 
+            <div class="x-control-group-title" xid="controlGroupTitle3"> 
+              <span xid="span8">模型定义</span> 
+            </div>  
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30" xid="lbselectmodel" style="font-family:Cambria;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}"> 
+              <label class="x-label" xid="modellb" bind-text="userModel.label('stkmodel')"/>  
+              <select component="$model/UI2/system/components/justep/select/select" class="form-control x-edit" xid="modelselect" bind-options="data1.datas" bind-optionsValue="'name'" bind-optionsAfterRender="$model.__justep__.selectOptionsAfterRender.bind($model,$element)" data-bind="component:{ref:userModel.ref('stkmodel'),name:'$model/UI2/system/components/justep/select/select',labelRef:userModel.ref('stkmodel')}" data-config="{&quot;optionsAutoLoad&quot;:true}"/> 
+            </div>  
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30" xid="lbinputrange" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}"> 
+              <label class="x-label" xid="rangelabel" bind-text="userModel.label('range')"/>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit" xid="range" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&quot;disabled&quot;:true}"/> 
+            </div>  
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30" xid="labelInputtstep" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}"> 
+              <label class="x-label" xid="tsteplabel" bind-text="userModel.label('timestep')"/>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit" xid="tstep" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&quot;disabled&quot;:true}"/> 
+            </div> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/button/buttonGroup" class="btn-group btn-group-justified" xid="buttonGroup2" data-bind="component:{name:'$model/UI2/system/components/justep/button/buttonGroup'}" data-config="{&quot;tabbed&quot;:true}"> 
+            <a component="$model/UI2/system/components/justep/button/button" class="btn x-orange" xid="modelsearch" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:searchClick" data-config="{&quot;icon&quot;:&quot;icon-search&quot;,&quot;label&quot;:&quot;Search&quot;}"> 
+              <i xid="i6" class="icon-search"/>  
+              <span xid="span9">Search</span> 
+            </a> 
+          </div> 
+        </div>  
+        <div class="x-contents-content" xid="searchinfo" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}">
+          <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group" xid="controlGroup1" style="height:261px;" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&quot;title&quot;:&quot;个股选择&quot;}"> 
+            <div class="x-control-group-title" xid="controlGroupTitle1"> 
+              <span xid="span5">title</span>
+            </div>  
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30" xid="labelInput4" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}"> 
+              <label class="x-label" xid="stkcodelb" bind-text="datastklabel.label('stkcode')"/>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit" xid="stkinput" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&quot;dataType&quot;:&quot;String&quot;}"/>
+            </div>
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30" xid="labelInput1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}"> 
+              <label class="x-label" xid="starttime" bind-text="datastklabel.label('starttime')"/>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit" xid="stinput" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&quot;dataType&quot;:&quot;DateTime&quot;}"/>
+            </div>  
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30" xid="labelInput2" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}"> 
+              <label class="x-label" xid="endtime" bind-text="datastklabel.label('endtime')"/>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit" xid="etinput" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&quot;dataType&quot;:&quot;DateTime&quot;}"/>
+            </div>  
+            <div component="$model/UI2/system/components/justep/button/buttonGroup" class="btn-group btn-group-justified" xid="buttonGroup3" data-bind="component:{name:'$model/UI2/system/components/justep/button/buttonGroup'}" data-config="{&quot;tabbed&quot;:true}">
+              <a component="$model/UI2/system/components/justep/button/button" class="btn x-orange" xid="stksearch" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:btnStkSearch" data-config="{&quot;icon&quot;:&quot;icon-android-search&quot;,&quot;label&quot;:&quot;Search&quot;}"> 
+                <i xid="i5" class="icon-android-search"/>  
+                <span xid="span6">Search</span>
+              </a>
+            </div>
+          </div>  
+          <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group" xid="controlGroup5" style="height:100%;width:100%;" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&quot;title&quot;:&quot;资金流动图&quot;}"> 
+            <div class="x-control-group-title" xid="controlGroupTitle5"> 
+              <span xid="span11">title</span>
+            </div>  
+            <div xid="stkgdiv" class="main" style="display:inline-block;width:100%;height:100%;"/>
+          </div>
+        </div>  
+        <div class="x-contents-content" xid="market" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}"/>  
+        <div class="x-contents-content" xid="mine" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}"/> 
+      </div> 
+    </div>  
+    <style>.x-panel.panel1-iosstatusbar &gt;.x-panel-top {height: 48px;}.x-panel.panel1-iosstatusbar &gt;.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.panel1-iosstatusbar &gt;.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.panel1-iosstatusbar &gt;.x-panel-top {height: 68px;}.iosstatusbar .x-panel.panel1-iosstatusbar &gt;.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.panel1-iosstatusbar &gt;.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.panel1-iosstatusbar &gt;.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>
